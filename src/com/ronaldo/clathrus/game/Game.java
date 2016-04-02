@@ -2,6 +2,7 @@ package com.ronaldo.clathrus.game;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
@@ -42,7 +43,20 @@ public class Game extends Canvas implements Runnable {
 	@Override
 	public void run() {
 		while (running) {
-			System.out.println("Running...");
+			update();
+			render();
+		}
+	}
+	
+	public void update() {
+		
+	}
+	
+	public void render() {
+		BufferStrategy bst = getBufferStrategy();
+		if (bst == null) {
+			createBufferStrategy(3);
+			return;
 		}
 	}
 	

@@ -1,7 +1,9 @@
 package com.ronaldo.clathrus.game;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
@@ -58,6 +60,14 @@ public class Game extends Canvas implements Runnable {
 			createBufferStrategy(3);
 			return;
 		}
+		
+		Graphics g = bst.getDrawGraphics();
+		
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, getWidth(), getHeight());
+		
+		g.dispose();
+		bst.show();
 	}
 	
 	public static void main(String[] args) {
